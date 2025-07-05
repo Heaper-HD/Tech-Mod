@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.heaper.tech_mod.block.ModBlocks;
 import net.heaper.tech_mod.groups.ModItemGroups;
 import net.heaper.tech_mod.item.ModItems;
+import net.heaper.tech_mod.util.ModLootTableModifiers;
 import net.heaper.tech_mod.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +33,10 @@ public class Tech_mod implements ModInitializer {
         //Log message for initializing world generation
         LOGGER.info("Initializing Mod World Generation");
         ModWorldGeneration.Initialize();
+
+        //Log message for mod loot table modifier
+        LOGGER.info("Initializing loot table modifier");
+        ModLootTableModifiers.Initialize();
 
     }
 }

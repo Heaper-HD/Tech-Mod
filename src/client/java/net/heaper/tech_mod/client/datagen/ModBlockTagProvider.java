@@ -23,24 +23,20 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(id(ModBlocks.URANIUM_ORE))
-                .add(id(ModBlocks.DEEPSLATE_URANIUM_ORE))
-                .add(id(ModBlocks.URANIUM_BLOCK))
-                .add(id(ModBlocks.RAW_URANIUM_BLOCK));
+        valueLookupBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(ModBlocks.URANIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_URANIUM_ORE)
+                .add(ModBlocks.URANIUM_BLOCK)
+                .add(ModBlocks.RAW_URANIUM_BLOCK);
 
-        getTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-                .add(id(ModBlocks.URANIUM_ORE))
-                .add(id(ModBlocks.DEEPSLATE_URANIUM_ORE))
-                .add(id(ModBlocks.URANIUM_BLOCK))
-                .add(id(ModBlocks.RAW_URANIUM_BLOCK));
+        valueLookupBuilder(BlockTags.NEEDS_IRON_TOOL)
+                .add(ModBlocks.URANIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_URANIUM_ORE)
+                .add(ModBlocks.URANIUM_BLOCK)
+                .add(ModBlocks.RAW_URANIUM_BLOCK);
 
-        getTagBuilder(URANIUM_ORES)
-                .add(id(ModBlocks.URANIUM_ORE))
-                .add(id(ModBlocks.DEEPSLATE_URANIUM_ORE));
-    }
-
-    private Identifier id(Block block) {
-        return Registries.BLOCK.getId(block);
+        valueLookupBuilder(URANIUM_ORES)
+                .add(ModBlocks.URANIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_URANIUM_ORE);
     }
 }

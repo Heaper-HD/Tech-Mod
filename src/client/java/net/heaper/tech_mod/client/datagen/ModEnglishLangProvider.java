@@ -17,6 +17,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
+        //Uranium Related translations
         translationBuilder.add(ModItems.RAW_URANIUM, "Raw Uranium");
         translationBuilder.add(ModItems.URANIUM_PELLET, "Uranium Pellet");
         translationBuilder.add(ModItems.SMALL_URANIUM_PELLET, "Small Uranium Pellet");
@@ -29,6 +30,21 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.RAW_URANIUM_BLOCK.asItem().getTranslationKey(), "Block of Raw Uranium");
         translationBuilder.add(ModBlocks.URANIUM_BLOCK.asItem().getTranslationKey(), "Uranium Block");
 
+        //Coal related translations
+
+        //Copper related translations
+
+        //Iron related translations
+
+        //Gold related translations
+
+        //Diamond related translations
+        translationBuilder.add(ModItems.DIAMOND_CRYSTAL, "Diamond Crystal");
+        translationBuilder.add(ModItems.EMERALD_CRYSTAL, "Emerald Crystal");
+
+        //Emerald related translations
+
+        //Item groups translations
         translationBuilder.add("itemGroup.tech_mod.items", "Items");
         translationBuilder.add("itemGroup.tech_mod.blocks", "Blocks");
     }

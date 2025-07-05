@@ -16,12 +16,17 @@ public class ModItemGroups {
             .icon(() -> new ItemStack(ModItems.URANIUM_PELLET))
             .displayName(Text.translatable("itemGroup.tech_mod.items"))
             .entries((context, entries) -> {
+                //Uranium related modded items
                 entries.add(ModItems.RAW_URANIUM);
                 entries.add(ModItems.URANIUM_PELLET);
                 entries.add(ModItems.SMALL_URANIUM_PELLET);
                 entries.add(ModItems.DIRTY_URANIUM_POWDER);
                 entries.add(ModItems.URANIUM_POWDER);
                 entries.add(ModItems.PURIFIED_URANIUM_POWDER);
+
+                //Vanilla related modded items
+                entries.add(ModItems.DIAMOND_CRYSTAL);
+                entries.add(ModItems.EMERALD_CRYSTAL);
             })
             .build();
 
@@ -29,6 +34,7 @@ public class ModItemGroups {
             .icon(() -> new ItemStack(ModBlocks.URANIUM_ORE))
             .displayName(Text.translatable("itemGroup.tech_mod.blocks"))
             .entries((context, entries) -> {
+                //Uranium related modded blocks
                 entries.add(ModBlocks.URANIUM_ORE);
                 entries.add(ModBlocks.DEEPSLATE_URANIUM_ORE);
                 entries.add(ModBlocks.RAW_URANIUM_BLOCK);

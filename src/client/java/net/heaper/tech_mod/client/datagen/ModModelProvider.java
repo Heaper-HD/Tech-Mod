@@ -15,6 +15,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        //Uranium block related models
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.URANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_URANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_URANIUM_BLOCK);
@@ -23,12 +24,27 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        //Uranium item related models
         itemModelGenerator.register(ModItems.RAW_URANIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.URANIUM_PELLET, Models.GENERATED);
         itemModelGenerator.register(ModItems.SMALL_URANIUM_PELLET, Models.GENERATED);
         itemModelGenerator.register(ModItems.DIRTY_URANIUM_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.URANIUM_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.PURIFIED_URANIUM_POWDER, Models.GENERATED);
+
+        //Coal item related models
+
+        //Copper item related models
+
+        //Iron item related models
+
+        //Gold item related models
+
+        //Diamond item related models
+        itemModelGenerator.register(ModItems.DIAMOND_CRYSTAL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EMERALD_CRYSTAL, Models.GENERATED);
+
+        //Emerald item related models
     }
 
     @Override

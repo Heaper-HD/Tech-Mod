@@ -1,4 +1,8 @@
 // 1.21.7	-999999999-01-01T00:00:00	Tech Mod/Block Loot Tables
+32c36c6e57621ed0483010ed47b041086011be20 data/minecraft/loot_table/blocks/deepslate_diamond_ore.json
+bdac4060faac99c96762f61b37f4904b94529fb8 data/minecraft/loot_table/blocks/deepslate_emerald_ore.json
+cc49cf8f0cf195f721be29159081722929ec207e data/minecraft/loot_table/blocks/diamond_ore.json
+61f5965f59339f584b3cfc8922b2af1193d9d4b4 data/minecraft/loot_table/blocks/emerald_ore.json
 b850d0e3060f83079b3e1882dd4ce82c11d0fc3f data/tech_mod/loot_table/blocks/deepslate_uranium_ore.json
 dbdd7a6e1b5c03e79f2ee57ec07019aa7996b411 data/tech_mod/loot_table/blocks/raw_uranium_block.json
 02354aff02ee9ca768886d2c924de2c5c8a409ae data/tech_mod/loot_table/blocks/uranium_block.json
