@@ -25,7 +25,7 @@ public class ModBlocks {
         //In case block item shouldn't be registered (Ex: minecraft:moving_piston, minecraft:end_gateway)
         if (shouldRegisterItem) {
             //Creates the block item key, needs to be a different type of registry key but the ID ban be the same
-            RegistryKey<Item> itemKey = keyOfitem(name);
+            RegistryKey<Item> itemKey = keyOfItem(name);
 
             BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
             Registry.register(Registries.ITEM, itemKey, blockItem);
@@ -38,7 +38,7 @@ public class ModBlocks {
         return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Tech_mod.MOD_ID, name));
     }
 
-    private static RegistryKey<Item> keyOfitem(String name) {
+    private static RegistryKey<Item> keyOfItem(String name) {
         return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Tech_mod.MOD_ID, name));
     }
 
@@ -59,14 +59,14 @@ public class ModBlocks {
     public static Block RAW_URANIUM_BLOCK = register(
             "raw_uranium_block",
             Block::new,
-            AbstractBlock.Settings.create().strength(4.5f, 3f).requiresTool().sounds(BlockSoundGroup.STONE),
+            AbstractBlock.Settings.create().strength(5f, 6f).requiresTool().sounds(BlockSoundGroup.STONE),
             true
     );
 
     public static Block URANIUM_BLOCK = register(
             "uranium_block",
             Block::new,
-            AbstractBlock.Settings.create().strength(4.5f, 3f).requiresTool().sounds(BlockSoundGroup.IRON),
+            AbstractBlock.Settings.create().strength(4.5f, 6f).requiresTool().sounds(BlockSoundGroup.IRON),
             true
     );
 
