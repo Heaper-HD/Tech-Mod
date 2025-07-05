@@ -1,0 +1,4 @@
+// 1.21.7	-999999999-01-01T00:00:00	Tech Mod/Tags for minecraft:block
+af8188e7cd540fe7b1c99e67afbd7553d30ec019 data/minecraft/tags/block/mineable/pickaxe.json
+af8188e7cd540fe7b1c99e67afbd7553d30ec019 data/minecraft/tags/block/needs_iron_tool.json
+6ae38b8777f1a98b9b3eb138151813f5b082b810 data/tech_mod/tags/block/uranium_ores.json
