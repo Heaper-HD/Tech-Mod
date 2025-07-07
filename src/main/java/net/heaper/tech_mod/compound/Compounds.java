@@ -23,7 +23,7 @@ public class Compounds {
 
     public static final Map<String, Compound> COMPOUND_MAP = new HashMap<>();
 
-    static {
+    static{
         SILICATE.addElement(Elements.SILICON, 1);
         SILICATE.addElement(Elements.OXYGEN, 3);
         HYDROXYL.addElement(Elements.OXYGEN, 1);
@@ -46,8 +46,12 @@ public class Compounds {
     }
 
     static {
-        register(EMERALD);
         register(SILICATE);
+        register(HYDROXYL);
+        register(SILICON_DIOXIDE);
+        register(CALCIUM_CARBONATE);
+        register(EMERALD);
+        register(DIAMOND);
     }
 
     private static void register(Compound compound) {
