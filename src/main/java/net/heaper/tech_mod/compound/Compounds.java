@@ -10,21 +10,39 @@ import java.util.List;
 import java.util.Map;
 
 public class Compounds {
-    public static final Compound EMERALD = new Compound("Emerald");
-    public static final Compound DIAMOND = new Compound("Diamond");
+    //Basic compounds
     public static final Compound SILICATE = new Compound("Silicate");
+    public static final Compound HYDROXYL = new Compound("Hydroxyl");
+    public static final Compound SILICON_DIOXIDE = new Compound("Silicon Dioxide");
+    public static final Compound CALCIUM_CARBONATE = new Compound("Calcium Carbonate");
+    public static final Compound DIAMOND = new Compound("Diamond");
+
+    //Complex compounds
+    public static final Compound EMERALD = new Compound("Emerald");
+    public static final Compound KAOLINITE = new Compound("Kaolinite");
 
     public static final Map<String, Compound> COMPOUND_MAP = new HashMap<>();
 
     static {
         SILICATE.addElement(Elements.SILICON, 1);
         SILICATE.addElement(Elements.OXYGEN, 3);
+        HYDROXYL.addElement(Elements.OXYGEN, 1);
+        HYDROXYL.addElement(Elements.HYDROGEN, 1);
+        SILICON_DIOXIDE.addElement(Elements.SILICON, 1);
+        SILICON_DIOXIDE.addElement(Elements.OXYGEN, 1);
+        CALCIUM_CARBONATE.addElement(Elements.CALCIUM, 1);
+        CALCIUM_CARBONATE.addElement(Elements.CARBON, 1);
+        CALCIUM_CARBONATE.addElement(Elements.OXYGEN, 3);
 
         DIAMOND.addElement(Elements.CARBON, 18);
 
         EMERALD.addElement(Elements.BERYLLIUM, 3);
         EMERALD.addElement(Elements.ALUMINIUM, 2);
         EMERALD.addCompoundGroup(SILICATE, 6);
+        KAOLINITE.addElement(Elements.ALUMINIUM, 2);
+        KAOLINITE.addElement(Elements.SILICON, 2);
+        KAOLINITE.addElement(Elements.OXYGEN, 5);
+        KAOLINITE.addCompoundGroup(HYDROXYL, 4);
     }
 
     static {

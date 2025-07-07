@@ -1,4 +1,4 @@
-package net.heaper.tech_mod.item;
+package net.heaper.tech_mod.util;
 
 import net.heaper.tech_mod.component.ModComponents;
 import net.heaper.tech_mod.compound.CompoundVariant;

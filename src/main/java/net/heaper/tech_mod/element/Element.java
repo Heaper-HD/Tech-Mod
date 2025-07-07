@@ -29,8 +29,6 @@ public class Element {
         return getSymbol() + "⁰";
     }
 
-
-
     @Override
     public String toString() {
         return getSymbol();

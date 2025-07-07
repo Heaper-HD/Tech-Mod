@@ -30,7 +30,7 @@ public class ModComponents {
 
     public static final ComponentType<List<CompoundVariant>> COMPOUNDS_COMPONENT = Registry.register(
             Registries.DATA_COMPONENT_TYPE,
-            Identifier.of(Tech_mod.MOD_ID, "compound"),
+            Identifier.of(Tech_mod.MOD_ID, "compounds"),
             ComponentType.<List<CompoundVariant>>builder().codec(Codec.list(Compounds.COMPOUND_VARIANT_CODEC)).build()
     );
 

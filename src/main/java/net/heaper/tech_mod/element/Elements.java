@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Elements {
+    //Real life elements
     public static final Element HYDROGEN = new Element("Hydrogen", "H");
     public static final Element HELIUM = new Element("Helium", "He");
     public static final Element LITHIUM = new Element("Lithium", "Li");
@@ -125,6 +126,9 @@ public class Elements {
     public static final Element MENDELEVIUM = new Element("Mendelevium", "Md");
     public static final Element NOBELIUM = new Element("Nobelium", "No");
     public static final Element LAWRENCIUM = new Element("Lawrencium", "Lr");
+
+    //Mod made up elements
+    public static final Element ARENTINIUM = new Element("Arentinium", "Ae");
 
     private static final Map<String, Element> ELEMENT_MAP = new HashMap<>();
 
@@ -245,6 +249,7 @@ public class Elements {
         register(MENDELEVIUM);
         register(NOBELIUM);
         register(LAWRENCIUM);
+        register(ARENTINIUM);
     }
 
     private static void register(Element element) {

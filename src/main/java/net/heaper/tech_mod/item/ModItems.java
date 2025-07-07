@@ -6,6 +6,7 @@ import net.heaper.tech_mod.compound.Compounds;
 import net.heaper.tech_mod.element.ElementVariant;
 import net.heaper.tech_mod.element.Elements;
 import net.heaper.tech_mod.element.PurityLevel;
+import net.heaper.tech_mod.util.ItemComponentHelper;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -40,6 +41,10 @@ public class ModItems {
     public static final Item PURIFIED_URANIUM_POWDER = register("purified_uranium_powder", settings ->
             new Item(ItemComponentHelper.withElementsComponent(settings, new ElementVariant(Elements.URANIUM, PurityLevel.PURE))), new Item.Settings());
 
+    //Arentinium related mod items
+    public static final Item ARENTINIUM_INGOT = register("arentium_ingot", settings ->
+            new Item(ItemComponentHelper.withElementsComponent(settings, new ElementVariant(Elements.ARENTINIUM, PurityLevel.NORMAL))), new Item.Settings());
+
     //Coal related mod items
 
     //Copper related mod items
@@ -50,11 +55,9 @@ public class ModItems {
 
     //Diamond related mod items
     public static final Item DIAMOND_CRYSTAL = register("diamond_crystal", settings ->
-            new Item(ItemComponentHelper.withCompoundsComponent(settings,
-                    new CompoundVariant(Compounds.DIAMOND, PurityLevel.IMPURE))), new Item.Settings());
+            new Item(ItemComponentHelper.withCompoundsComponent(settings, new CompoundVariant(Compounds.DIAMOND, PurityLevel.IMPURE))), new Item.Settings());
     public static final Item EMERALD_CRYSTAL = register("emerald_crystal", settings ->
-        new Item(ItemComponentHelper.withCompoundsComponent(settings,
-                new CompoundVariant(Compounds.EMERALD, PurityLevel.IMPURE))), new Item.Settings());
+        new Item(ItemComponentHelper.withCompoundsComponent(settings, new CompoundVariant(Compounds.EMERALD, PurityLevel.IMPURE))), new Item.Settings());
 
     //Emerald related mod items
 

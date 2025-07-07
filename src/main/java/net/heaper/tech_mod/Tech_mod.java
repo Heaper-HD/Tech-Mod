@@ -5,6 +5,7 @@ import net.heaper.tech_mod.block.ModBlocks;
 import net.heaper.tech_mod.command.ModCommandsDispatcher;
 import net.heaper.tech_mod.component.ModComponents;
 import net.heaper.tech_mod.groups.ModItemGroups;
+import net.heaper.tech_mod.util.ItemComponentModifier;
 import net.heaper.tech_mod.item.ModItems;
 import net.heaper.tech_mod.util.ModLootTableModifiers;
 import net.heaper.tech_mod.world.gen.ModWorldGeneration;
@@ -45,7 +46,11 @@ public class Tech_mod implements ModInitializer {
         ModCommandsDispatcher.Initialize();
 
         //Log message for mod components initializing
-        LOGGER.info("Registering {} components");
+        LOGGER.info("Registering Components");
         ModComponents.Initialize();
+
+        //Log message for altering vanilla items
+        LOGGER.info("Altering Vanilla Items");
+        ItemComponentModifier.Initialize();
     }
 }

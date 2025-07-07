@@ -24,6 +24,9 @@ public class ModItemGroups {
                 entries.add(ModItems.URANIUM_POWDER);
                 entries.add(ModItems.PURIFIED_URANIUM_POWDER);
 
+                //Arentinium related mod items
+                entries.add(ModItems.ARENTINIUM_INGOT);
+
                 //Vanilla related modded items
                 entries.add(ModItems.DIAMOND_CRYSTAL);
                 entries.add(ModItems.EMERALD_CRYSTAL);
