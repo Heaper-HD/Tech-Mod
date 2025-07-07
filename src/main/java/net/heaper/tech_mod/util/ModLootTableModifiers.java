@@ -12,7 +12,6 @@ public class ModLootTableModifiers {
         LootTableEvents.REPLACE.register((key, tableBuilder, source, registry) -> {
             if (DIAMOND_ORE.equals(key.getValue()) || DEEPSLATE_DIAMOND_ORE.equals(key.getValue())) {
 
-
             }
 
             return null;

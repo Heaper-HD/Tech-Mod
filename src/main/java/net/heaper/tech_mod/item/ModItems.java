@@ -1,6 +1,11 @@
 package net.heaper.tech_mod.item;
 
 import net.heaper.tech_mod.Tech_mod;
+import net.heaper.tech_mod.compound.CompoundVariant;
+import net.heaper.tech_mod.compound.Compounds;
+import net.heaper.tech_mod.element.ElementVariant;
+import net.heaper.tech_mod.element.Elements;
+import net.heaper.tech_mod.element.PurityLevel;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -28,9 +33,12 @@ public class ModItems {
     public static final Item RAW_URANIUM = register("raw_uranium", Item::new, new Item.Settings());
     public static final Item URANIUM_PELLET = register("uranium_pellet", Item::new, new Item.Settings());
     public static final Item SMALL_URANIUM_PELLET = register("small_uranium_pellet", Item::new, new Item.Settings());
-    public static final Item DIRTY_URANIUM_POWDER = register("dirty_uranium_powder", Item::new, new Item.Settings());
-    public static final Item URANIUM_POWDER = register("uranium_powder", Item::new, new Item.Settings());
-    public static final Item PURIFIED_URANIUM_POWDER = register("purified_uranium_powder", Item::new, new Item.Settings());
+    public static final Item DIRTY_URANIUM_POWDER = register("dirty_uranium_powder", settings ->
+            new Item(ItemComponentHelper.withElementsComponent(settings, new ElementVariant(Elements.URANIUM, PurityLevel.IMPURE))), new Item.Settings());
+    public static final Item URANIUM_POWDER = register("uranium_powder", settings ->
+            new Item(ItemComponentHelper.withElementsComponent(settings, new ElementVariant(Elements.URANIUM, PurityLevel.NORMAL))), new Item.Settings());
+    public static final Item PURIFIED_URANIUM_POWDER = register("purified_uranium_powder", settings ->
+            new Item(ItemComponentHelper.withElementsComponent(settings, new ElementVariant(Elements.URANIUM, PurityLevel.PURE))), new Item.Settings());
 
     //Coal related mod items
 
@@ -41,8 +49,12 @@ public class ModItems {
     //Gold related mod items
 
     //Diamond related mod items
-    public static final Item DIAMOND_CRYSTAL = register("diamond_crystal", Item::new, new Item.Settings());
-    public static final Item EMERALD_CRYSTAL = register("emerald_crystal", Item::new, new Item.Settings());
+    public static final Item DIAMOND_CRYSTAL = register("diamond_crystal", settings ->
+            new Item(ItemComponentHelper.withCompoundsComponent(settings,
+                    new CompoundVariant(Compounds.DIAMOND, PurityLevel.IMPURE))), new Item.Settings());
+    public static final Item EMERALD_CRYSTAL = register("emerald_crystal", settings ->
+        new Item(ItemComponentHelper.withCompoundsComponent(settings,
+                new CompoundVariant(Compounds.EMERALD, PurityLevel.IMPURE))), new Item.Settings());
 
     //Emerald related mod items
 

@@ -17,20 +17,22 @@ public class Element {
         return symbol;
     }
 
-    public String getNormal() {
-        return symbol;
+    public String getNormalSymbol() {
+        return getSymbol() + "";
     }
 
-    public String getImpure() {
-        return symbol + '*';
+    public String getImpureSymbol() {
+        return getSymbol() + "*";
     }
 
-    public String getPure() {
-        return symbol + '⁰';
+    public String getPureSymbol() {
+        return getSymbol() + "⁰";
     }
+
+
 
     @Override
     public String toString() {
-        return getNormal();
+        return getSymbol();
     }
 }

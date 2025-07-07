@@ -30,6 +30,11 @@ public class Compound {
         }
     }
 
+    public static Compound fromCodec(String name, String symbol) {
+        Compound compound = new Compound(name);
+        return compound;
+    }
+
     public Map<Element, Integer> getAllElementsFlat() {
         return flatElements;
     }
@@ -42,15 +47,19 @@ public class Compound {
         return name;
     }
 
-    public String getNormal() {
+    public String getSymbol() {
         return formatFormula("");
     }
 
-    public String getImpure() {
+    public String getNormalSymbol() {
+        return formatFormula("");
+    }
+
+    public String getImpureSymbol() {
         return formatFormula("*");
     }
 
-    public String getPure() {
+    public String getPureSymbol() {
         return formatFormula("⁰");
     }
 

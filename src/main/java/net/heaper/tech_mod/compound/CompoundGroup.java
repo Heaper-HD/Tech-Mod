@@ -19,17 +19,17 @@ public class CompoundGroup implements CompoundComponent{
 
     @Override
     public String getNormal() {
-        return '(' + compound.getNormal() + ')' + (quantity > 1 ? toSubscript(quantity) : "");
+        return '(' + compound.getSymbol() + ')' + (quantity > 1 ? toSubscript(quantity) : "");
     }
 
     @Override
     public String getImpure() {
-        return '(' + compound.getImpure() + ')' + (quantity > 1 ? toSubscript(quantity) : "");
+        return '(' + compound.getSymbol() + ')' + (quantity > 1 ? toSubscript(quantity) : "");
     }
 
     @Override
     public String getPure() {
-        return '(' + compound.getPure() + ')' + (quantity > 1 ? toSubscript(quantity) : "");
+        return '(' + compound.getSymbol() + ')' + (quantity > 1 ? toSubscript(quantity) : "");
     }
 
     private String toSubscript(int number) {

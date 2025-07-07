@@ -3,6 +3,7 @@ package net.heaper.tech_mod;
 import net.fabricmc.api.ModInitializer;
 import net.heaper.tech_mod.block.ModBlocks;
 import net.heaper.tech_mod.command.ModCommandsDispatcher;
+import net.heaper.tech_mod.component.ModComponents;
 import net.heaper.tech_mod.groups.ModItemGroups;
 import net.heaper.tech_mod.item.ModItems;
 import net.heaper.tech_mod.util.ModLootTableModifiers;
@@ -42,5 +43,9 @@ public class Tech_mod implements ModInitializer {
         //Log message for mod command dispatcher
         LOGGER.info("Initializing Mod Commands");
         ModCommandsDispatcher.Initialize();
+
+        //Log message for mod components initializing
+        LOGGER.info("Registering {} components");
+        ModComponents.Initialize();
     }
 }

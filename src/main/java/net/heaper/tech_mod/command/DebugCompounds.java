@@ -18,7 +18,7 @@ public class DebugCompounds {
                                     Compound COMPOUND = Compounds.getByName(name);
                                     if (COMPOUND != null) {
                                         context.getSource().sendFeedback(() ->
-                                                Text.literal("Compound Found!\nName: " + COMPOUND.getName() + "\nSymbol: " + COMPOUND.getNormal()), false);
+                                                Text.literal("Compound Found!\nName: " + COMPOUND.getName() + "\nSymbol: " + COMPOUND.getSymbol()), false);
                                         return 1;
                                     } else {
                                         context.getSource().sendFeedback(() ->

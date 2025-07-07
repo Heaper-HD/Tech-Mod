@@ -10,5 +10,8 @@ public class ModCommandsDispatcher {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, enviroment) -> {
             DebugCompounds.register(dispatcher);
         });
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+            DebugComponent.register(dispatcher);
+        });
     }
 }

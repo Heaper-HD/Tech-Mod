@@ -1,6 +1,11 @@
 package net.heaper.tech_mod.element;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.heaper.tech_mod.component.ModComponents;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Elements {
@@ -254,4 +259,16 @@ public class Elements {
     public static Element getBySymbol(String symbol){
         return ELEMENT_MAP.get(symbol.toLowerCase());
     }
+
+    public static final Codec<ElementVariant> ELEMENT_VARIANT_CODEC = RecordCodecBuilder.create(instance ->
+            instance.group(
+                    Codec.STRING.fieldOf("symbol").forGetter(v -> v.getElement().getSymbol()),
+                    ModComponents.PURITY_CODEC.fieldOf("purity").forGetter(ElementVariant::getPurity)
+            ).apply(instance, (symbol, purity) -> {
+                Element element = Elements.getBySymbol(symbol);
+                return new ElementVariant(element, purity);
+            })
+    );
+
+    public static final Codec<List<ElementVariant>> ELEMENT_VARIANT_LIST_CODEC = Codec.list(ELEMENT_VARIANT_CODEC);
 }
