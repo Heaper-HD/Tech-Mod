@@ -9,6 +9,9 @@ import net.heaper.tech_mod.world.ModPlacedFeatures;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 
+import java.io.DataOutput;
+import java.io.IOException;
+
 public class Tech_modDataGenerator implements DataGeneratorEntrypoint {
 
     @Override
@@ -38,6 +41,9 @@ public class Tech_modDataGenerator implements DataGeneratorEntrypoint {
 
         Tech_mod.LOGGER.info("Initializing Mod Registry Data Generator");
         pack.addProvider(ModRegistryDataGenerator::new);
+
+        Tech_mod.LOGGER.info("Initializing texture generator");
+        new ModTextureGenerator(pack);
     }
 
     @Override
