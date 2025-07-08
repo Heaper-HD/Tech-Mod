@@ -37,6 +37,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.URANIUM_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.PURIFIED_URANIUM_POWDER, Models.GENERATED);
 
+        //Arentinium item related models
+        itemModelGenerator.register(ModItems.ARENTINIUM_INGOT, Models.GENERATED);
+
         //Coal item related models
 
         //Copper item related models

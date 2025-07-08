@@ -15,7 +15,7 @@ public class ModTextureGenerator {
 
     public static void Initialize(FabricDataGenerator.Pack pack) {
         Map<Item, Color> textures = Map.of(
-                ModItems.RAW_URANIUM, new Color(177, 191, 58)
+                ModItems.ARENTINIUM_INGOT, new Color(210, 133, 255, 89)
         );
 
         pack.addProvider(new TextureDataProviderFactory(textures));

@@ -1,15 +1,18 @@
 package net.heaper.tech_mod.client.datagen.texture;
 
+import com.google.common.hash.HashCode;
 import net.heaper.tech_mod.Tech_mod;
 import net.minecraft.data.DataOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.DataWriter;
 import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -34,7 +37,7 @@ public class TextureDataProvider implements DataProvider {
             Tech_mod.LOGGER.info("Trying to read texture from: " + baseImagePath.toString());
 
             for (Map.Entry<Item, Color> entry : textureTargets.entrySet()) {
-                Identifier id = Identifier.of(entry.getKey().toString());
+                Identifier id = Registries.ITEM.getId(entry.getKey());
                 Color overlay = entry.getValue();
                 try {
                     BufferedImage baseIamge = ImageIO.read(baseImagePath.toFile());
@@ -42,9 +45,14 @@ public class TextureDataProvider implements DataProvider {
 
                     Path targetPath = texturePathResolver.resolveJson(id).resolveSibling(id.getPath() + ".png");
                     Files.createDirectories(targetPath.getParent());
-                    ImageIO.write(result, "png", targetPath.toFile());
 
-                    Tech_mod.LOGGER.info("Wrote texture for:" + id + " to " + targetPath);
+                    ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+                    ImageIO.write(result, "png", byteStream);
+                    byte[] data = byteStream.toByteArray();
+                    HashCode hash = com.google.common.hash.Hashing.sha256().hashBytes(data);
+                    writer.write(targetPath, data, hash);
+
+                    Tech_mod.LOGGER.info("Wrote texture for: " + id + " to " + targetPath);
                 } catch (IOException e) {
                     throw new RuntimeException("Failed to write texture for: " + id, e);
                 }
