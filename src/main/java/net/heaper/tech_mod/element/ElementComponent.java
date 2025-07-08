@@ -1,10 +1,10 @@
 package net.heaper.tech_mod.element;
 
-public class ElementVariant {
+public class ElementComponent {
     private final Element element;
     private final PurityLevel purity;
 
-    public ElementVariant(Element element, PurityLevel purity) {
+    public ElementComponent(Element element, PurityLevel purity) {
         this.element = element;
         this.purity = purity;
     }

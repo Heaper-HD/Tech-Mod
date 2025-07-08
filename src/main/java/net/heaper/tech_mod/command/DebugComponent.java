@@ -2,8 +2,8 @@ package net.heaper.tech_mod.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.heaper.tech_mod.component.ModComponents;
-import net.heaper.tech_mod.compound.CompoundVariant;
-import net.heaper.tech_mod.element.ElementVariant;
+import net.heaper.tech_mod.compound.CompoundComponent;
+import net.heaper.tech_mod.element.ElementComponent;
 import net.heaper.tech_mod.element.PurityLevel;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.command.CommandManager;
@@ -19,12 +19,20 @@ public class DebugComponent {
             ServerPlayerEntity player = context.getSource().getPlayer();
             ItemStack stack = player.getMainHandStack();
 
-            if (stack.contains(ModComponents.ELEMENTS_COMPONENT)) {
-                context.getSource().sendFeedback(() -> Text.literal("Element(s) found!"), false);
+            boolean hasElements = stack.contains(ModComponents.ELEMENTS_COMPONENT);
+            boolean hasCompounds = stack.contains(ModComponents.COMPOUNDS_COMPONENT);
 
-                List<ElementVariant> variants = stack.get(ModComponents.ELEMENTS_COMPONENT);
-                for (ElementVariant elementVariant : variants) {
-                    PurityLevel purityLevel = elementVariant.getPurity();
+            if (!hasElements && !hasCompounds) context.getSource().sendFeedback(() -> Text.literal("No chemical build components found."), false);;
+
+            if (hasElements) {
+                if (stack.get(ModComponents.ELEMENTS_COMPONENT).size() > 1)
+                    context.getSource().sendFeedback(() -> Text.literal("Elements found!"), false);
+                else context.getSource().sendFeedback(() -> Text.literal("Element found!"), false);
+
+                List<ElementComponent> elements = stack.get(ModComponents.ELEMENTS_COMPONENT);
+                for (int i = 0; i < elements.size(); i++) {
+                    ElementComponent element = elements.get(i);
+                    PurityLevel purityLevel = element.getPurity();
                     String purityStr = switch (purityLevel) {
                         case NORMAL -> "Normal";
                         case IMPURE -> "Impure";
@@ -32,16 +40,20 @@ public class DebugComponent {
                     };
                     context.getSource().sendFeedback(() ->
                             Text.literal(
-                                            "Name: " + elementVariant.getElement().getName() +
-                                            "\nSymbol: " + elementVariant.getElement().getSymbol() + " - " + purityStr
+                                            "Name: " + element.getElement().getName() +
+                                            "\nSymbol: " + element.getElement().getSymbol() + " - " + purityStr
                             ), false);
                 }
-            } else if (stack.contains(ModComponents.COMPOUNDS_COMPONENT)) {
-                context.getSource().sendFeedback(() -> Text.literal("Compound(s) found!"), false);
+            }
+            if (hasCompounds) {
+                if (stack.get(ModComponents.COMPOUNDS_COMPONENT).size() > 1)
+                    context.getSource().sendFeedback(() -> Text.literal("Compounds found!"), false);
+                else context.getSource().sendFeedback(() -> Text.literal("Compound found!"), false);
 
-                List<CompoundVariant> variants = stack.get(ModComponents.COMPOUNDS_COMPONENT);
-                for (CompoundVariant compoundVariant : variants) {
-                    PurityLevel purityLevel = compoundVariant.getPurity();
+                List<CompoundComponent> compounds = stack.get(ModComponents.COMPOUNDS_COMPONENT);
+                for (int i = 0; i < compounds.size(); i++) {
+                    CompoundComponent compound = compounds.get(i);
+                    PurityLevel purityLevel = compound.getPurity();
                     String purityStr = switch (purityLevel) {
                         case NORMAL -> "Normal";
                         case IMPURE -> "Impure";
@@ -49,13 +61,10 @@ public class DebugComponent {
                     };
                     context.getSource().sendFeedback(() ->
                             Text.literal(
-                                    "Name: " + compoundVariant.getCompound().getName() +
-                                            "\nSymbol: " + compoundVariant.getCompound().getSymbol() + " - " + purityStr
+                                    "Name: " + compound.getCompound().getName() +
+                                            "\nSymbol: " + compound.getCompound().getSymbol() + " - " + purityStr
                             ), false);
                 }
-            } else {
-                context.getSource().sendFeedback(() -> Text.literal("No chemical build components found."), false);
-
             }
             return 1;
         }));

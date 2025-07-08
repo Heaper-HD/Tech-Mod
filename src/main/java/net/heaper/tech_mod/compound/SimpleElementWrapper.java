@@ -2,7 +2,7 @@ package net.heaper.tech_mod.compound;
 
 import net.heaper.tech_mod.element.Element;
 
-public class SimpleElementWrapper implements CompoundComponent {
+public class SimpleElementWrapper implements CompoundInterface {
     private final Element element;
     private final int amount;
 

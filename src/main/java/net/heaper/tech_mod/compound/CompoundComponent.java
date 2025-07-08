@@ -1,7 +1,29 @@
 package net.heaper.tech_mod.compound;
 
-public interface CompoundComponent {
-    String getNormal();
-    String getImpure();
-    String getPure();
+import net.heaper.tech_mod.element.PurityLevel;
+
+public class CompoundComponent {
+    private final Compound compound;
+    private final PurityLevel purity;
+
+    public CompoundComponent(Compound compound, PurityLevel purity) {
+        this.compound = compound;
+        this.purity = purity;
+    }
+
+    public Compound getCompound() {
+        return compound;
+    }
+
+    public PurityLevel getPurity() {
+        return purity;
+    }
+
+    public String getSymbol() {
+        return switch (purity) {
+            case NORMAL -> compound.getNormalSymbol();
+            case IMPURE -> compound.getImpureSymbol();
+            case PURE -> compound.getPureSymbol();
+        };
+    }
 }

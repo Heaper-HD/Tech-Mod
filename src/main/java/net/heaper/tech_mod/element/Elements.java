@@ -128,6 +128,7 @@ public class Elements {
     public static final Element LAWRENCIUM = new Element("Lawrencium", "Lr");
 
     //Mod made up elements
+    public static final Element X_ELEMENT = new Element("X Element", "X");
     public static final Element ARENTINIUM = new Element("Arentinium", "Ae");
 
     private static final Map<String, Element> ELEMENT_MAP = new HashMap<>();
@@ -265,15 +266,13 @@ public class Elements {
         return ELEMENT_MAP.get(symbol.toLowerCase());
     }
 
-    public static final Codec<ElementVariant> ELEMENT_VARIANT_CODEC = RecordCodecBuilder.create(instance ->
+    public static final Codec<ElementComponent> ELEMENT_VARIANT_CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     Codec.STRING.fieldOf("symbol").forGetter(v -> v.getElement().getSymbol()),
-                    ModComponents.PURITY_CODEC.fieldOf("purity").forGetter(ElementVariant::getPurity)
+                    ModComponents.PURITY_CODEC.fieldOf("purity").forGetter(ElementComponent::getPurity)
             ).apply(instance, (symbol, purity) -> {
                 Element element = Elements.getBySymbol(symbol);
-                return new ElementVariant(element, purity);
+                return new ElementComponent(element, purity);
             })
     );
-
-    public static final Codec<List<ElementVariant>> ELEMENT_VARIANT_LIST_CODEC = Codec.list(ELEMENT_VARIANT_CODEC);
 }

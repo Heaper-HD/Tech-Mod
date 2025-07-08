@@ -2,12 +2,11 @@ package net.heaper.tech_mod.block;
 
 import net.heaper.tech_mod.Tech_mod;
 import net.heaper.tech_mod.component.ModComponents;
-import net.heaper.tech_mod.compound.CompoundVariant;
+import net.heaper.tech_mod.compound.CompoundComponent;
 import net.heaper.tech_mod.compound.Compounds;
-import net.heaper.tech_mod.element.ElementVariant;
+import net.heaper.tech_mod.element.ElementComponent;
 import net.heaper.tech_mod.element.Elements;
 import net.heaper.tech_mod.element.PurityLevel;
-import net.heaper.tech_mod.util.ItemComponentHelper;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -34,7 +33,7 @@ public class ModBlocks {
 
         //In case block item shouldn't be registered (Ex: minecraft:moving_piston, minecraft:end_gateway)
         if (shouldRegisterItem) {
-            //Creates the block item key, needs to be a different type of registry key but the ID ban be the same
+            //Creates the block item key, needs to be a different type of registry key but the ID can be the same
             RegistryKey<Item> itemKey = keyOfItem(name);
 
             BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
@@ -53,12 +52,10 @@ public class ModBlocks {
 
         //In case block item shouldn't be registered (Ex: minecraft:moving_piston, minecraft:end_gateway)
         if (shouldRegisterItem) {
-            //Creates the block item key, needs to be a different type of registry key but the ID ban be the same
+            //Creates the block item key, needs to be a different type of registry key but the ID can be the same
             RegistryKey<Item> itemKey = keyOfItem(name);
             Item.Settings itemSettings = new Item.Settings().registryKey(itemKey);
-            if (shouldRegisterItem) {
-                itemSettingsModifier.accept(itemSettings);
-            }
+            itemSettingsModifier.accept(itemSettings);
 
             BlockItem blockItem = new BlockItem(block, itemSettings);
             Registry.register(Registries.ITEM, itemKey, blockItem);
@@ -80,8 +77,8 @@ public class ModBlocks {
             Block::new,
             AbstractBlock.Settings.create().strength(3.0f, 3f).requiresTool().sounds(BlockSoundGroup.STONE),
             true, itemSettings -> {
-                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(new ElementVariant(Elements.URANIUM, PurityLevel.IMPURE)));
-                itemSettings.component(ModComponents.COMPOUNDS_COMPONENT, List.of(new CompoundVariant(Compounds.SILICON_DIOXIDE, PurityLevel.IMPURE)));
+                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE)));
+                itemSettings.component(ModComponents.COMPOUNDS_COMPONENT, List.of(new CompoundComponent(Compounds.SILICON_MONOXIDE, PurityLevel.NORMAL)));
             });
 
 
@@ -90,25 +87,31 @@ public class ModBlocks {
             Block::new,
             AbstractBlock.Settings.create().strength(4.5f, 3f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE),
             true, itemSettings -> {
-                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(new ElementVariant(Elements.URANIUM, PurityLevel.IMPURE)));
+                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE)));
                 itemSettings.component(ModComponents.COMPOUNDS_COMPONENT, List.of(
-                        new CompoundVariant(Compounds.SILICON_DIOXIDE, PurityLevel.IMPURE),
-                        new CompoundVariant(Compounds.CALCIUM_CARBONATE, PurityLevel.IMPURE)));
+                        new CompoundComponent(Compounds.SILICON_MONOXIDE, PurityLevel.IMPURE),
+                        new CompoundComponent(Compounds.CALCIUM_CARBONATE, PurityLevel.IMPURE)));
             });
 
     public static Block RAW_URANIUM_BLOCK = register(
             "raw_uranium_block",
             Block::new,
             AbstractBlock.Settings.create().strength(5f, 6f).requiresTool().sounds(BlockSoundGroup.STONE),
-            true
-    );
+            true, itemSettings -> {
+                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(
+                        new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE),
+                        new ElementComponent(Elements.X_ELEMENT, PurityLevel.IMPURE)));
+            });
 
     public static Block URANIUM_BLOCK = register(
             "uranium_block",
             Block::new,
             AbstractBlock.Settings.create().strength(4.5f, 6f).requiresTool().sounds(BlockSoundGroup.IRON),
-            true
-    );
+            true, itemSettings -> {
+                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(
+                        new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE)));
+            });
+
 
     public static void Initialize() {
 

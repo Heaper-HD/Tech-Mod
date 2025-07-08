@@ -2,8 +2,8 @@ package net.heaper.tech_mod.client.tooltip;
 
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.heaper.tech_mod.component.ModComponents;
-import net.heaper.tech_mod.compound.CompoundVariant;
-import net.heaper.tech_mod.element.ElementVariant;
+import net.heaper.tech_mod.compound.CompoundComponent;
+import net.heaper.tech_mod.element.ElementComponent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
@@ -20,9 +20,9 @@ public class ModCompositionTooltipGenerator {
             StringBuilder sb = new StringBuilder();
 
             if (hasElements) {
-                List<ElementVariant> elements = itemStack.get(ModComponents.ELEMENTS_COMPONENT);
+                List<ElementComponent> elements = itemStack.get(ModComponents.ELEMENTS_COMPONENT);
                 for (int i = 0; i < elements.size(); i++) {
-                    ElementVariant element = elements.get(i);
+                    ElementComponent element = elements.get(i);
                     String suffix = switch (element.getPurity()) {
                         case NORMAL -> "";
                         case IMPURE -> "*";
@@ -36,9 +36,9 @@ public class ModCompositionTooltipGenerator {
             }
 
             if (hasCompounds) {
-                List<CompoundVariant> compounds = itemStack.get(ModComponents.COMPOUNDS_COMPONENT);
+                List<CompoundComponent> compounds = itemStack.get(ModComponents.COMPOUNDS_COMPONENT);
                 for (int i = 0; i < compounds.size(); i++) {
-                    CompoundVariant compound = compounds.get(i);
+                    CompoundComponent compound = compounds.get(i);
                     String suffix = switch (compound.getPurity()) {
                         case NORMAL -> "";
                         case IMPURE -> "*";

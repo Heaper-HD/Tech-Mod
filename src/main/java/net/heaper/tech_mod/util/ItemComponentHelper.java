@@ -1,20 +1,18 @@
 package net.heaper.tech_mod.util;
 
 import net.heaper.tech_mod.component.ModComponents;
-import net.heaper.tech_mod.compound.CompoundVariant;
-import net.heaper.tech_mod.element.ElementVariant;
+import net.heaper.tech_mod.compound.CompoundComponent;
+import net.heaper.tech_mod.element.ElementComponent;
 import net.minecraft.item.Item;
 
 import java.util.Arrays;
 
 public class ItemComponentHelper {
-    @SafeVarargs
-    public static Item.Settings withElementsComponent(Item.Settings settings, ElementVariant... variants) {
+    public static Item.Settings withElementsComponent(Item.Settings settings, ElementComponent... variants) {
         return  settings.component(ModComponents.ELEMENTS_COMPONENT, Arrays.asList(variants));
     }
 
-    @SafeVarargs
-    public static Item.Settings withCompoundsComponent(Item.Settings settings, CompoundVariant... variants) {
+    public static Item.Settings withCompoundsComponent(Item.Settings settings, CompoundComponent... variants) {
         return  settings.component(ModComponents.COMPOUNDS_COMPONENT, Arrays.asList(variants));
     }
 }

@@ -1,6 +1,6 @@
 package net.heaper.tech_mod.compound;
 
-public class CompoundGroup implements CompoundComponent{
+public class CompoundGroup implements CompoundInterface {
     private final Compound compound;
     private final int quantity;
 

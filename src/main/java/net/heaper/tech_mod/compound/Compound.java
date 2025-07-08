@@ -10,7 +10,7 @@ import java.util.Map;
 public class Compound {
     private final String name;
     private final Map<Element, Integer> flatElements = new LinkedHashMap<>();
-    private final List<CompoundComponent> components = new LinkedList<>();
+    private final List<CompoundInterface> components = new LinkedList<>();
 
     public Compound(String name) {
         this.name = name;
@@ -30,16 +30,11 @@ public class Compound {
         }
     }
 
-    public static Compound fromCodec(String name, String symbol) {
-        Compound compound = new Compound(name);
-        return compound;
-    }
-
     public Map<Element, Integer> getAllElementsFlat() {
         return flatElements;
     }
 
-    public List<CompoundComponent> getComponents() {
+    public List<CompoundInterface> getComponents() {
         return components;
     }
 
@@ -65,7 +60,7 @@ public class Compound {
 
     private String formatFormula(String suffix) {
         StringBuilder sb = new StringBuilder();
-        for (CompoundComponent component : components) {
+        for (CompoundInterface component : components) {
             if (component instanceof SimpleElementWrapper simple) {
                 sb.append(simple.getFormatted(suffix));
             } else if (component instanceof CompoundGroup group) {
