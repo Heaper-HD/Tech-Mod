@@ -3,6 +3,7 @@
     "tech_mod:uranium_ore",
     "tech_mod:deepslate_uranium_ore",
     "tech_mod:uranium_block",
-    "tech_mod:raw_uranium_block"
+    "tech_mod:raw_uranium_block",
+    "tech_mod:raw_arentinium_block"
   ]
 }

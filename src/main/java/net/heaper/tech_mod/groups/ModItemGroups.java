@@ -25,7 +25,7 @@ public class ModItemGroups {
                 entries.add(ModItems.PURIFIED_URANIUM_POWDER);
 
                 //Arentinium related mod items
-                entries.add(ModItems.ARENTINIUM_INGOT);
+                entries.add(ModItems.RAW_ARENTINIUM);
 
                 //Vanilla related modded items
                 entries.add(ModItems.DIAMOND_CRYSTAL);
@@ -42,6 +42,9 @@ public class ModItemGroups {
                 entries.add(ModBlocks.DEEPSLATE_URANIUM_ORE);
                 entries.add(ModBlocks.RAW_URANIUM_BLOCK);
                 entries.add(ModBlocks.URANIUM_BLOCK);
+
+                //Arentinium related modded blocks
+                entries.add(ModBlocks.RAW_ARENTINIUM_BLOCK);
             })
             .build();
 

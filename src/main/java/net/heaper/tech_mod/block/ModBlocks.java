@@ -112,6 +112,16 @@ public class ModBlocks {
                         new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE)));
             });
 
+    public static Block RAW_ARENTINIUM_BLOCK = register(
+            "raw_arentinium_block",
+            Block::new,
+            AbstractBlock.Settings.create().strength(5f, 6f).requiresTool().sounds(BlockSoundGroup.STONE),
+            true, itemSettings -> {
+                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(
+                        new ElementComponent(Elements.ARENTINIUM, PurityLevel.IMPURE),
+                        new ElementComponent(Elements.X_ELEMENT, PurityLevel.IMPURE)));
+            });
+
 
     public static void Initialize() {
 

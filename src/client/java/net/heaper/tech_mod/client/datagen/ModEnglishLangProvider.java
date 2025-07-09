@@ -3,9 +3,7 @@ package net.heaper.tech_mod.client.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.heaper.tech_mod.block.ModBlocks;
-import net.heaper.tech_mod.groups.ModItemGroups;
 import net.heaper.tech_mod.item.ModItems;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -31,7 +29,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.URANIUM_BLOCK.asItem().getTranslationKey(), "Uranium Block");
 
         //Arentinium related translations
-        translationBuilder.add(ModItems.ARENTINIUM_INGOT, "Arentinium Ingot");
+        translationBuilder.add(ModItems.RAW_ARENTINIUM, "Arentinium Ingot");
 
         //Coal related translations
 

@@ -1,8 +1,13 @@
 package net.heaper.tech_mod.client.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.heaper.tech_mod.client.datagen.texture.TextureDataProviderFactory;
+import net.heaper.tech_mod.block.ModBlocks;
+import net.heaper.tech_mod.client.datagen.texture.BlockTextureDataProviderFactory;
+import net.heaper.tech_mod.client.datagen.texture.TemplateEntry;
+import net.heaper.tech_mod.client.datagen.texture.Templates;
+import net.heaper.tech_mod.client.datagen.texture.ItemTextureDataProviderFactory;
 import net.heaper.tech_mod.item.ModItems;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import java.awt.*;
@@ -14,10 +19,15 @@ public class ModTextureGenerator {
     }
 
     public static void Initialize(FabricDataGenerator.Pack pack) {
-        Map<Item, Color> textures = Map.of(
-                ModItems.ARENTINIUM_INGOT, new Color(210, 133, 255, 89)
+        Map<Item, TemplateEntry> itemTextures = Map.of(
+                ModItems.RAW_ARENTINIUM, new TemplateEntry(Templates.RAW_IRON, new Color(228, 145, 255, 89))
         );
 
-        pack.addProvider(new TextureDataProviderFactory(textures));
+        Map<Block, TemplateEntry> blockTextures = Map.of(
+                ModBlocks.RAW_ARENTINIUM_BLOCK, new TemplateEntry(Templates.RAW_IRON_BLOCK, new Color(228, 145, 255, 89))
+        );
+
+        pack.addProvider(new ItemTextureDataProviderFactory(itemTextures));
+        pack.addProvider(new BlockTextureDataProviderFactory(blockTextures));
     }
 }

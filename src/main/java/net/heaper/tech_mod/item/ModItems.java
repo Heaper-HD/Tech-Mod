@@ -46,9 +46,9 @@ public class ModItems {
             new Item(ItemComponentHelper.withElementsComponent(settings, new ElementComponent(Elements.URANIUM, PurityLevel.PURE))), new Item.Settings());
 
     //Arentinium related mod items
-    public static final Item ARENTINIUM_INGOT = register("arentium_ingot", settings ->
-            new Item(ItemComponentHelper.withElementsComponent(settings, new ElementComponent(Elements.ARENTINIUM, PurityLevel.NORMAL))), new Item.Settings());
-
+    public static final Item RAW_ARENTINIUM = register("raw_arentinium", settings ->
+            new Item(ItemComponentHelper.withElementsComponent(settings, new ElementComponent(Elements.ARENTINIUM, PurityLevel.IMPURE),
+                    new ElementComponent(Elements.X_ELEMENT, PurityLevel.NORMAL))), new Item.Settings());
     //Coal related mod items
 
     //Copper related mod items

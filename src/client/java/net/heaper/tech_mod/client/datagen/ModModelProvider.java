@@ -25,6 +25,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_URANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_URANIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.URANIUM_BLOCK);
+
+        //Arentinium item related models
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_ARENTINIUM_BLOCK);
     }
 
     @Override
@@ -38,7 +41,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PURIFIED_URANIUM_POWDER, Models.GENERATED);
 
         //Arentinium item related models
-        itemModelGenerator.register(ModItems.ARENTINIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_ARENTINIUM, Models.GENERATED);
 
         //Coal item related models
 

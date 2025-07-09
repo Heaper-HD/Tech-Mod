@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tech_mod:item/arentium_ingot"
+    "layer0": "tech_mod:item/raw_arentinium"
   }
 }

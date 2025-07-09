@@ -27,13 +27,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.URANIUM_ORE)
                 .add(ModBlocks.DEEPSLATE_URANIUM_ORE)
                 .add(ModBlocks.URANIUM_BLOCK)
-                .add(ModBlocks.RAW_URANIUM_BLOCK);
+                .add(ModBlocks.RAW_URANIUM_BLOCK)
+                .add(ModBlocks.RAW_ARENTINIUM_BLOCK);
 
         valueLookupBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.URANIUM_ORE)
                 .add(ModBlocks.DEEPSLATE_URANIUM_ORE)
                 .add(ModBlocks.URANIUM_BLOCK)
-                .add(ModBlocks.RAW_URANIUM_BLOCK);
+                .add(ModBlocks.RAW_URANIUM_BLOCK)
+                .add(ModBlocks.RAW_ARENTINIUM_BLOCK);
 
         valueLookupBuilder(URANIUM_ORES)
                 .add(ModBlocks.URANIUM_ORE)

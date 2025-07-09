@@ -56,6 +56,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .group("uranium_block")
                         .criterion(hasItem(ModItems.URANIUM_PELLET), conditionsFromItem(ModItems.URANIUM_PELLET))
                         .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, ModBlocks.RAW_ARENTINIUM_BLOCK)
+                        .pattern("###")
+                        .pattern("###")
+                        .pattern("###")
+                        .input('#', ModItems.RAW_ARENTINIUM)
+                        .group("raw_arentinium_block")
+                        .criterion(hasItem(ModItems.RAW_ARENTINIUM), conditionsFromItem(ModItems.RAW_ARENTINIUM))
+                        .offerTo(exporter);
 
                 //Ingot to nuggets like recipes
                 createShapeless(RecipeCategory.MISC, ModItems.SMALL_URANIUM_PELLET, 9)
@@ -74,8 +82,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 //Raw block to raw item recipes
                 createShapeless(RecipeCategory.MISC, ModItems.RAW_URANIUM, 9)
                         .input(ModBlocks.RAW_URANIUM_BLOCK)
-                        .criterion(hasItem(ModBlocks.URANIUM_BLOCK), conditionsFromItem(ModBlocks.URANIUM_BLOCK))
+                        .criterion(hasItem(ModBlocks.RAW_URANIUM_BLOCK), conditionsFromItem(ModBlocks.RAW_URANIUM_BLOCK))
                         .group("raw_uranium")
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.MISC, ModItems.RAW_ARENTINIUM, 9)
+                        .input(ModBlocks.RAW_ARENTINIUM_BLOCK)
+                        .criterion(hasItem(ModBlocks.RAW_ARENTINIUM_BLOCK), conditionsFromItem(ModBlocks.RAW_ARENTINIUM_BLOCK))
+                        .group("raw_arentinium")
                         .offerTo(exporter);
 
                 //Smelting recipes
