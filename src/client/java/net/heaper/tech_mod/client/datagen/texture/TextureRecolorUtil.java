@@ -21,7 +21,6 @@ public class TextureRecolorUtil {
 
                 float brightness = (r + g + b) / (3f * 255f);
 
-
                 float adjustedBrightness = (float) Math.pow(brightness, 1.0f / gamma);
                 adjustedBrightness = Math.min(adjustedBrightness, 1.0f);
 

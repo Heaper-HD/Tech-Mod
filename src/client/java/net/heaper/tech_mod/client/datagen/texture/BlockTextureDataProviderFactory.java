@@ -2,6 +2,7 @@ package net.heaper.tech_mod.client.datagen.texture;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.heaper.tech_mod.client.datagen.texture.template.TemplateEntry;
 import net.minecraft.block.Block;
 
 import java.util.Map;

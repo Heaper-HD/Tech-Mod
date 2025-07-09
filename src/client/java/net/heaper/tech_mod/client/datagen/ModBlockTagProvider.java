@@ -20,6 +20,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     }
 
     public static TagKey<Block> URANIUM_ORES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Tech_mod.MOD_ID, "uranium_ores"));
+    public static TagKey<Block> ARENTINIUM_ORES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Tech_mod.MOD_ID, "arentinium_ores"));
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
@@ -28,6 +29,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DEEPSLATE_URANIUM_ORE)
                 .add(ModBlocks.URANIUM_BLOCK)
                 .add(ModBlocks.RAW_URANIUM_BLOCK)
+                .add(ModBlocks.ARENTINIUM_ORE)
                 .add(ModBlocks.RAW_ARENTINIUM_BLOCK);
 
         valueLookupBuilder(BlockTags.NEEDS_IRON_TOOL)
@@ -35,10 +37,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DEEPSLATE_URANIUM_ORE)
                 .add(ModBlocks.URANIUM_BLOCK)
                 .add(ModBlocks.RAW_URANIUM_BLOCK)
+                .add(ModBlocks.ARENTINIUM_ORE)
                 .add(ModBlocks.RAW_ARENTINIUM_BLOCK);
 
         valueLookupBuilder(URANIUM_ORES)
                 .add(ModBlocks.URANIUM_ORE)
                 .add(ModBlocks.DEEPSLATE_URANIUM_ORE);
+
+        valueLookupBuilder(ARENTINIUM_ORES)
+                .add(ModBlocks.ARENTINIUM_ORE);
     }
 }

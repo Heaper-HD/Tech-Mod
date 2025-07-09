@@ -112,6 +112,15 @@ public class ModBlocks {
                         new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE)));
             });
 
+    public static Block ARENTINIUM_ORE = register(
+            "arentinium_ore",
+            Block::new,
+            AbstractBlock.Settings.create().strength(5f, 6f).requiresTool().sounds(BlockSoundGroup.STONE),
+            true, itemSettings -> {
+                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(new ElementComponent(Elements.ARENTINIUM, PurityLevel.IMPURE)));
+                itemSettings.component(ModComponents.COMPOUNDS_COMPONENT, List.of(new CompoundComponent(Compounds.SILICON_MONOXIDE, PurityLevel.NORMAL)));
+            });
+
     public static Block RAW_ARENTINIUM_BLOCK = register(
             "raw_arentinium_block",
             Block::new,

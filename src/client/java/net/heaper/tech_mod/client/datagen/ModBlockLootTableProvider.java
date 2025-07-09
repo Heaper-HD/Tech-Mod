@@ -10,6 +10,7 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -45,6 +46,14 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                 this.applyExplosionDecay(ModBlocks.DEEPSLATE_URANIUM_ORE,
                         ItemEntry.builder(ModItems.RAW_URANIUM)
                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))
+                                .apply(ApplyBonusLootFunction.oreDrops(fortune))
+                ))
+        );
+
+        addDrop(ModBlocks.ARENTINIUM_ORE, dropsWithSilkTouch(ModBlocks.ARENTINIUM_ORE,
+                this.applyExplosionDecay(ModBlocks.ARENTINIUM_ORE,
+                        ItemEntry.builder(ModItems.RAW_ARENTINIUM)
+                                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.5f)))
                                 .apply(ApplyBonusLootFunction.oreDrops(fortune))
                 ))
         );

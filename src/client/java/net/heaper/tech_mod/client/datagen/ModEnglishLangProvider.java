@@ -30,8 +30,10 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 
         //Arentinium related translations
         translationBuilder.add(ModItems.RAW_ARENTINIUM, "Raw Arentinium");
+        translationBuilder.add(ModItems.ARENTINIUM_INGOT, "Arentinium Ingot");
 
-        translationBuilder.add(ModBlocks.RAW_ARENTINIUM_BLOCK.asItem(), "Raw Arentinium Block");
+        translationBuilder.add(ModBlocks.ARENTINIUM_ORE.asItem(), "Arentinium Ore");
+        translationBuilder.add(ModBlocks.RAW_ARENTINIUM_BLOCK.asItem(), "Block of Raw Arentinium");
 
         //Coal related translations
 

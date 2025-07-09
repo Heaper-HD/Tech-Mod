@@ -1,4 +1,4 @@
-package net.heaper.tech_mod.client.datagen.texture;
+package net.heaper.tech_mod.client.datagen.texture.template;
 
 import java.awt.*;
 

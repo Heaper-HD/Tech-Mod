@@ -2,6 +2,7 @@ package net.heaper.tech_mod.client.datagen.texture;
 
 import com.google.common.hash.HashCode;
 import net.heaper.tech_mod.Tech_mod;
+import net.heaper.tech_mod.client.datagen.texture.template.TemplateEntry;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataOutput;
 import net.minecraft.data.DataProvider;
@@ -39,7 +40,7 @@ public class BlockTextureDataProvider implements DataProvider {
                 try {
                     Path baseImagePath = Path.of(projectRoot.toString() + "/src/main/resources/assets/" + Tech_mod.MOD_ID + "/templates/block/" + template.getTemplate().getTemplateFile());
                     if (!Files.exists(baseImagePath)) throw new IOException("Template image not found: " + baseImagePath);
-                    Tech_mod.LOGGER.info("Reading item texture for: {} from: {}", id, baseImagePath);
+                    Tech_mod.LOGGER.info("Reading block texture for: {} from: {}", id, baseImagePath);
 
                     BufferedImage baseIamge = ImageIO.read(baseImagePath.toFile());
                     BufferedImage result = TextureRecolorUtil.recolor(baseIamge, template.overlayColor);

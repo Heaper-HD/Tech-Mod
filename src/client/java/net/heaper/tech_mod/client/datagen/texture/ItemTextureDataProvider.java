@@ -2,6 +2,7 @@ package net.heaper.tech_mod.client.datagen.texture;
 
 import com.google.common.hash.HashCode;
 import net.heaper.tech_mod.Tech_mod;
+import net.heaper.tech_mod.client.datagen.texture.template.TemplateEntry;
 import net.minecraft.data.DataOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.DataWriter;
