@@ -4,17 +4,39 @@ public class Template {
     private final String name;
     private final String templateFile;
     private final String shadowFile;
+    private final String rustFile;
 
-    public Template(String name, String templateFile) {
-        this.name = name;
-        this.templateFile = templateFile;
-        this.shadowFile = null;
+    private Template(Builder builder) {
+        this.name = builder.name;
+        this.templateFile = builder.templateFile;
+        this.shadowFile = builder.shadowFile;
+        this.rustFile = builder.rustFile;
     }
 
-    public Template(String name, String templateFile, String shadowFile) {
-        this.name = name;
-        this.templateFile = templateFile;
-        this.shadowFile = shadowFile;
+    public static class Builder {
+        private final String name;
+        private final String templateFile;
+        private String shadowFile;
+        private String rustFile;
+
+        public Builder(String name, String templateFile) {
+            this.name = name;
+            this.templateFile = templateFile;
+        }
+
+        public Builder shadow(String shadowFile) {
+            this.shadowFile = shadowFile;
+            return this;
+        }
+
+        public Builder rust(String rustFile) {
+            this.rustFile = rustFile;
+            return this;
+        }
+
+        public Template build() {
+            return new Template(this);
+        }
     }
 
     public String getName() {
@@ -27,5 +49,9 @@ public class Template {
 
     public String getShadowFile() {
         return shadowFile;
+    }
+
+    public String getRustFile() {
+        return rustFile;
     }
 }

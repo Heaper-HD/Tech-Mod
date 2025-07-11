@@ -3,16 +3,16 @@ package net.heaper.tech_mod.client.datagen.texture.template;
 import net.heaper.tech_mod.client.datagen.texture.base.Base;
 
 public class TextureDefinition {
-    private final TemplateEntry templateEntry;
+    private final TemplateConfig config;
     private final Base base;
 
-    public TextureDefinition(TemplateEntry templateEntry, Base base) {
-        this.templateEntry = templateEntry;
+    public TextureDefinition(TemplateConfig config, Base base) {
+        this.config = config;
         this.base = base;
     }
 
-    public TemplateEntry getTemplateEntry() {
-        return templateEntry;
+    public TemplateConfig getTemplateEntry() {
+        return config;
     }
 
     public Base getBase() {

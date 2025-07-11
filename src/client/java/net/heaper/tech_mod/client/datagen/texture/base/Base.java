@@ -1,19 +1,18 @@
 package net.heaper.tech_mod.client.datagen.texture.base;
 
-public class Base {
-    private final String name;
+public enum Base {
+    STONE("stone.png"),
+    DEEPSLATE("deepslate.png"),
+    NETHERRACK("netherrack.png"),
+    END_STONE("end_stone.png");
+
     private final String overlayFile;
 
-    public Base(String name, String overlayFile) {
-        this.name = name;
+    Base(String overlayFile) {
         this.overlayFile = overlayFile;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getOverlayFile() {
+    public String getTextureFile() {
         return overlayFile;
     }
 }
