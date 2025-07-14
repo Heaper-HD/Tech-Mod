@@ -5,6 +5,7 @@
   "item.tech_mod.diamond_crystal": "Diamond Crystal",
   "item.tech_mod.dirty_uranium_powder": "Dirty Uranium Powder",
   "item.tech_mod.emerald_crystal": "Emerald Crystal",
+  "item.tech_mod.pulverizer": "Pulverizer",
   "item.tech_mod.purified_uranium_powder": "Purified Uranium Powder",
   "item.tech_mod.raw_arentinium": "Raw Arentinium",
   "item.tech_mod.raw_arentinium_block": "Block of Raw Arentinium",
@@ -16,5 +17,8 @@
   "item.tech_mod.uranium_pellet": "Uranium Pellet",
   "item.tech_mod.uranium_powder": "Uranium Powder",
   "itemGroup.tech_mod.blocks": "Blocks",
-  "itemGroup.tech_mod.items": "Items"
+  "itemGroup.tech_mod.items": "Items",
+  "itemGroup.tech_mod.machines": "Machines",
+  "tech_modcontainer.pulverizer": "Pulverizer",
+  "tech_modgui.recipebook.toggleRecipes.pulverizeable": "Showing Pulverizeable"
 }

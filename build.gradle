@@ -20,6 +20,7 @@ sourceSets {
 
 loom {
     splitEnvironmentSourceSets()
+    accessWidenerPath = file("src/main/resources/tech_mod.accesswidener")
 
     mods {
         "tech_mod" {

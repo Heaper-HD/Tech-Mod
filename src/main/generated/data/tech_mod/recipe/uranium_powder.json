@@ -1,0 +1,11 @@
+{
+  "type": "tech_mod:pulverizing",
+  "category": "misc",
+  "experience": 0.1,
+  "group": "uranium_powder",
+  "ingredient": "tech_mod:uranium_ore",
+  "pulverization_time": 200,
+  "result": {
+    "id": "tech_mod:uranium_powder"
+  }
+}

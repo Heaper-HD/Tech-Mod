@@ -1,5 +1,7 @@
 package net.heaper.tech_mod.client.datagen;
 
+import net.heaper.tech_mod.client.datagen.builder.recipe.PulverizingRecipeJsonBuilder;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -110,6 +112,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         100,
                         "uranium_pellet"
                 );
+
+                //Pulverizing recipes
+                PulverizingRecipeJsonBuilder.createPulverizingRecipe(
+                                Ingredient.ofItems(ModBlocks.URANIUM_ORE),   // ← correct
+                                RecipeCategory.MISC,
+                                ModItems.URANIUM_POWDER,
+                                0.1f,
+                                200)
+                        .group("uranium_powder")
+                        .criterion(hasItem(ModBlocks.URANIUM_ORE), conditionsFromItem(ModBlocks.URANIUM_ORE))
+                        .offerTo(exporter);
             }
         };
     }

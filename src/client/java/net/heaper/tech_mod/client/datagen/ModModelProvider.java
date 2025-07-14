@@ -2,16 +2,9 @@ package net.heaper.tech_mod.client.datagen;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.heaper.tech_mod.Tech_mod;
 import net.heaper.tech_mod.block.ModBlocks;
 import net.heaper.tech_mod.item.ModItems;
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.Model;
-import net.minecraft.client.data.Models;
-import net.minecraft.util.Identifier;
-
-import java.util.Optional;
+import net.minecraft.client.data.*;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -26,9 +19,11 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_URANIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.URANIUM_BLOCK);
 
-        //Arentinium item related models
+        //Arentinium block related models
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ARENTINIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_ARENTINIUM_BLOCK);
+
+        //Machines block related models
     }
 
     @Override
@@ -58,10 +53,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.EMERALD_CRYSTAL, Models.GENERATED);
 
         //Emerald item related models
-    }
-
-    public static Model item(String parent) {
-        return new Model(Optional.of(Identifier.of(Tech_mod.MOD_ID, "item/" + parent)), Optional.empty());
     }
 
     @Override

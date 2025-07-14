@@ -2,11 +2,10 @@ package net.heaper.tech_mod.compound;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.heaper.tech_mod.component.ModComponents;
+import net.heaper.tech_mod.component.ModDataComponentsType;
 import net.heaper.tech_mod.element.Elements;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Compounds {
@@ -217,7 +216,7 @@ public class Compounds {
     public static final Codec<CompoundComponent> COMPOUND_VARIANT_CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     Codec.STRING.fieldOf("symbol").forGetter(v -> v.getCompound().getSymbol()),
-                    ModComponents.PURITY_CODEC.fieldOf("purity").forGetter(CompoundComponent::getPurity)
+                    ModDataComponentsType.PURITY_CODEC.fieldOf("purity").forGetter(CompoundComponent::getPurity)
             ).apply(instance, (symbol, purity) -> {
                 Compound component = Compounds.getBySymbol(symbol);
                 return new CompoundComponent(component, purity);

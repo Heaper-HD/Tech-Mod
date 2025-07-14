@@ -2,6 +2,7 @@ package net.heaper.tech_mod.client.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.heaper.tech_mod.Tech_mod;
 import net.heaper.tech_mod.block.ModBlocks;
 import net.heaper.tech_mod.item.ModItems;
 import net.minecraft.registry.RegistryWrapper;
@@ -49,8 +50,18 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 
         //Emerald related translations
 
+        //Machines related translations
+        translationBuilder.add(ModBlocks.PULVERIZER.asItem(), "Pulverizer");
+
+        //Containers translations
+        translationBuilder.add(Tech_mod.MOD_ID + "container.pulverizer", "Pulverizer");
+
+        //Butons transtaltions
+        translationBuilder.add(Tech_mod.MOD_ID + "gui.recipebook.toggleRecipes.pulverizeable", "Showing Pulverizeable");
+
         //Item groups translations
         translationBuilder.add("itemGroup.tech_mod.items", "Items");
         translationBuilder.add("itemGroup.tech_mod.blocks", "Blocks");
+        translationBuilder.add("itemGroup.tech_mod.machines", "Machines");
     }
 }

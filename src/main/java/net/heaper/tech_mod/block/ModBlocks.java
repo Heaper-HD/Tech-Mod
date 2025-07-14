@@ -1,7 +1,7 @@
 package net.heaper.tech_mod.block;
 
 import net.heaper.tech_mod.Tech_mod;
-import net.heaper.tech_mod.component.ModComponents;
+import net.heaper.tech_mod.component.ModDataComponentsType;
 import net.heaper.tech_mod.compound.CompoundComponent;
 import net.heaper.tech_mod.compound.Compounds;
 import net.heaper.tech_mod.element.ElementComponent;
@@ -24,46 +24,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModBlocks {
-    private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
-        //Creates the block key
-        RegistryKey<Block> blockKey = keyOfBlock(name);
-
-        //Creates the block instance
-        Block block = blockFactory.apply(settings.registryKey(blockKey));
-
-        //In case block item shouldn't be registered (Ex: minecraft:moving_piston, minecraft:end_gateway)
-        if (shouldRegisterItem) {
-            //Creates the block item key, needs to be a different type of registry key but the ID can be the same
-            RegistryKey<Item> itemKey = keyOfItem(name);
-
-            BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
-            Registry.register(Registries.ITEM, itemKey, blockItem);
-        }
-
-        return Registry.register(Registries.BLOCK, blockKey, block);
-    }
-
-    private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem, @Nullable Consumer<Item.Settings> itemSettingsModifier) {
-        //Creates the block key
-        RegistryKey<Block> blockKey = keyOfBlock(name);
-
-        //Creates the block instance
-        Block block = blockFactory.apply(settings.registryKey(blockKey));
-
-        //In case block item shouldn't be registered (Ex: minecraft:moving_piston, minecraft:end_gateway)
-        if (shouldRegisterItem) {
-            //Creates the block item key, needs to be a different type of registry key but the ID can be the same
-            RegistryKey<Item> itemKey = keyOfItem(name);
-            Item.Settings itemSettings = new Item.Settings().registryKey(itemKey);
-            itemSettingsModifier.accept(itemSettings);
-
-            BlockItem blockItem = new BlockItem(block, itemSettings);
-            Registry.register(Registries.ITEM, itemKey, blockItem);
-        }
-
-        return Registry.register(Registries.BLOCK, blockKey, block);
-    }
-
     private static RegistryKey<Block> keyOfBlock(String name) {
         return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Tech_mod.MOD_ID, name));
     }
@@ -77,8 +37,8 @@ public class ModBlocks {
             Block::new,
             AbstractBlock.Settings.create().strength(3.0f, 3f).requiresTool().sounds(BlockSoundGroup.STONE),
             true, itemSettings -> {
-                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE)));
-                itemSettings.component(ModComponents.COMPOUNDS_COMPONENT, List.of(new CompoundComponent(Compounds.SILICON_MONOXIDE, PurityLevel.NORMAL)));
+                itemSettings.component(ModDataComponentsType.ELEMENTS_COMPONENT, List.of(new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE)));
+                itemSettings.component(ModDataComponentsType.COMPOUNDS_COMPONENT, List.of(new CompoundComponent(Compounds.SILICON_MONOXIDE, PurityLevel.NORMAL)));
             });
 
 
@@ -87,8 +47,8 @@ public class ModBlocks {
             Block::new,
             AbstractBlock.Settings.create().strength(4.5f, 3f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE),
             true, itemSettings -> {
-                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE)));
-                itemSettings.component(ModComponents.COMPOUNDS_COMPONENT, List.of(
+                itemSettings.component(ModDataComponentsType.ELEMENTS_COMPONENT, List.of(new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE)));
+                itemSettings.component(ModDataComponentsType.COMPOUNDS_COMPONENT, List.of(
                         new CompoundComponent(Compounds.SILICON_MONOXIDE, PurityLevel.IMPURE),
                         new CompoundComponent(Compounds.CALCIUM_CARBONATE, PurityLevel.IMPURE)));
             });
@@ -98,7 +58,7 @@ public class ModBlocks {
             Block::new,
             AbstractBlock.Settings.create().strength(5f, 6f).requiresTool().sounds(BlockSoundGroup.STONE),
             true, itemSettings -> {
-                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(
+                itemSettings.component(ModDataComponentsType.ELEMENTS_COMPONENT, List.of(
                         new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE),
                         new ElementComponent(Elements.X_ELEMENT, PurityLevel.IMPURE)));
             });
@@ -108,7 +68,7 @@ public class ModBlocks {
             Block::new,
             AbstractBlock.Settings.create().strength(4.5f, 6f).requiresTool().sounds(BlockSoundGroup.IRON),
             true, itemSettings -> {
-                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(
+                itemSettings.component(ModDataComponentsType.ELEMENTS_COMPONENT, List.of(
                         new ElementComponent(Elements.URANIUM, PurityLevel.IMPURE)));
             });
 
@@ -117,8 +77,8 @@ public class ModBlocks {
             Block::new,
             AbstractBlock.Settings.create().strength(5f, 6f).requiresTool().sounds(BlockSoundGroup.STONE),
             true, itemSettings -> {
-                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(new ElementComponent(Elements.ARENTINIUM, PurityLevel.IMPURE)));
-                itemSettings.component(ModComponents.COMPOUNDS_COMPONENT, List.of(new CompoundComponent(Compounds.SILICON_MONOXIDE, PurityLevel.NORMAL)));
+                itemSettings.component(ModDataComponentsType.ELEMENTS_COMPONENT, List.of(new ElementComponent(Elements.ARENTINIUM, PurityLevel.IMPURE)));
+                itemSettings.component(ModDataComponentsType.COMPOUNDS_COMPONENT, List.of(new CompoundComponent(Compounds.SILICON_MONOXIDE, PurityLevel.NORMAL)));
             });
 
     public static Block RAW_ARENTINIUM_BLOCK = register(
@@ -126,13 +86,50 @@ public class ModBlocks {
             Block::new,
             AbstractBlock.Settings.create().strength(5f, 6f).requiresTool().sounds(BlockSoundGroup.STONE),
             true, itemSettings -> {
-                itemSettings.component(ModComponents.ELEMENTS_COMPONENT, List.of(
+                itemSettings.component(ModDataComponentsType.ELEMENTS_COMPONENT, List.of(
                         new ElementComponent(Elements.ARENTINIUM, PurityLevel.IMPURE),
                         new ElementComponent(Elements.X_ELEMENT, PurityLevel.IMPURE)));
             });
 
+    public static Block PULVERIZER = register(
+            "pulverizer",
+            PulverizerBlock::new,
+            AbstractBlock.Settings.create(),
+            true
+    );
 
-    public static void Initialize() {
 
+    public static void Initialize() {}
+
+    private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
+        RegistryKey<Block> blockKey = keyOfBlock(name);
+
+        Block block = blockFactory.apply(settings.registryKey(blockKey));
+
+        if (shouldRegisterItem) {
+            RegistryKey<Item> itemKey = keyOfItem(name);
+
+            BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
+            Registry.register(Registries.ITEM, itemKey, blockItem);
+        }
+
+        return Registry.register(Registries.BLOCK, blockKey, block);
+    }
+
+    private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem, @Nullable Consumer<Item.Settings> itemSettingsModifier) {
+        RegistryKey<Block> blockKey = keyOfBlock(name);
+
+        Block block = blockFactory.apply(settings.registryKey(blockKey));
+
+        if (shouldRegisterItem) {
+            RegistryKey<Item> itemKey = keyOfItem(name);
+            Item.Settings itemSettings = new Item.Settings().registryKey(itemKey);
+            itemSettingsModifier.accept(itemSettings);
+
+            BlockItem blockItem = new BlockItem(block, itemSettings);
+            Registry.register(Registries.ITEM, itemKey, blockItem);
+        }
+
+        return Registry.register(Registries.BLOCK, blockKey, block);
     }
 }

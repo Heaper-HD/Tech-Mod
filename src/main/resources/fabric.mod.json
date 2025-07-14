@@ -26,6 +26,8 @@
     }
   ],
 
+  "acessWidener": "tech_mod.acesswidener",
+
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",

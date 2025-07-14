@@ -1,7 +1,7 @@
 package net.heaper.tech_mod.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import net.heaper.tech_mod.component.ModComponents;
+import net.heaper.tech_mod.component.ModDataComponentsType;
 import net.heaper.tech_mod.compound.CompoundComponent;
 import net.heaper.tech_mod.element.ElementComponent;
 import net.heaper.tech_mod.element.PurityLevel;
@@ -19,17 +19,17 @@ public class DebugComponent {
             ServerPlayerEntity player = context.getSource().getPlayer();
             ItemStack stack = player.getMainHandStack();
 
-            boolean hasElements = stack.contains(ModComponents.ELEMENTS_COMPONENT);
-            boolean hasCompounds = stack.contains(ModComponents.COMPOUNDS_COMPONENT);
+            boolean hasElements = stack.contains(ModDataComponentsType.ELEMENTS_COMPONENT);
+            boolean hasCompounds = stack.contains(ModDataComponentsType.COMPOUNDS_COMPONENT);
 
             if (!hasElements && !hasCompounds) context.getSource().sendFeedback(() -> Text.literal("No chemical build components found."), false);;
 
             if (hasElements) {
-                if (stack.get(ModComponents.ELEMENTS_COMPONENT).size() > 1)
+                if (stack.get(ModDataComponentsType.ELEMENTS_COMPONENT).size() > 1)
                     context.getSource().sendFeedback(() -> Text.literal("Elements found!"), false);
                 else context.getSource().sendFeedback(() -> Text.literal("Element found!"), false);
 
-                List<ElementComponent> elements = stack.get(ModComponents.ELEMENTS_COMPONENT);
+                List<ElementComponent> elements = stack.get(ModDataComponentsType.ELEMENTS_COMPONENT);
                 for (int i = 0; i < elements.size(); i++) {
                     ElementComponent element = elements.get(i);
                     PurityLevel purityLevel = element.getPurity();
@@ -46,11 +46,11 @@ public class DebugComponent {
                 }
             }
             if (hasCompounds) {
-                if (stack.get(ModComponents.COMPOUNDS_COMPONENT).size() > 1)
+                if (stack.get(ModDataComponentsType.COMPOUNDS_COMPONENT).size() > 1)
                     context.getSource().sendFeedback(() -> Text.literal("Compounds found!"), false);
                 else context.getSource().sendFeedback(() -> Text.literal("Compound found!"), false);
 
-                List<CompoundComponent> compounds = stack.get(ModComponents.COMPOUNDS_COMPONENT);
+                List<CompoundComponent> compounds = stack.get(ModDataComponentsType.COMPOUNDS_COMPONENT);
                 for (int i = 0; i < compounds.size(); i++) {
                     CompoundComponent compound = compounds.get(i);
                     PurityLevel purityLevel = compound.getPurity();

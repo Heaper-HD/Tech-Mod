@@ -1,7 +1,7 @@
 package net.heaper.tech_mod.client.tooltip;
 
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
-import net.heaper.tech_mod.component.ModComponents;
+import net.heaper.tech_mod.component.ModDataComponentsType;
 import net.heaper.tech_mod.compound.CompoundComponent;
 import net.heaper.tech_mod.element.ElementComponent;
 import net.minecraft.text.Text;
@@ -12,15 +12,15 @@ import java.util.List;
 public class ModCompositionTooltipGenerator {
     public static void Initialize() {
         ItemTooltipCallback.EVENT.register((itemStack, tooltipContext, tooltipType, list) -> {
-            boolean hasElements = itemStack.contains(ModComponents.ELEMENTS_COMPONENT);
-            boolean hasCompounds = itemStack.contains(ModComponents.COMPOUNDS_COMPONENT);
+            boolean hasElements = itemStack.contains(ModDataComponentsType.ELEMENTS_COMPONENT);
+            boolean hasCompounds = itemStack.contains(ModDataComponentsType.COMPOUNDS_COMPONENT);
 
             if (!hasElements && !hasCompounds) return;
 
             StringBuilder sb = new StringBuilder();
 
             if (hasElements) {
-                List<ElementComponent> elements = itemStack.get(ModComponents.ELEMENTS_COMPONENT);
+                List<ElementComponent> elements = itemStack.get(ModDataComponentsType.ELEMENTS_COMPONENT);
                 for (int i = 0; i < elements.size(); i++) {
                     ElementComponent element = elements.get(i);
                     String suffix = switch (element.getPurity()) {
@@ -36,7 +36,7 @@ public class ModCompositionTooltipGenerator {
             }
 
             if (hasCompounds) {
-                List<CompoundComponent> compounds = itemStack.get(ModComponents.COMPOUNDS_COMPONENT);
+                List<CompoundComponent> compounds = itemStack.get(ModDataComponentsType.COMPOUNDS_COMPONENT);
                 for (int i = 0; i < compounds.size(); i++) {
                     CompoundComponent compound = compounds.get(i);
                     String suffix = switch (compound.getPurity()) {

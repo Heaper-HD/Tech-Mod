@@ -47,11 +47,21 @@ public class ModItemGroups {
                 //Arentinium related modded blocks
                 entries.add(ModBlocks.ARENTINIUM_ORE);
                 entries.add(ModBlocks.RAW_ARENTINIUM_BLOCK);
+
+            })
+            .build();
+
+    public static final ItemGroup MACHINES_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(ModBlocks.PULVERIZER))
+            .displayName(Text.translatable("itemGroup.tech_mod.machines"))
+            .entries((context, entries) -> {
+               entries.add(ModBlocks.PULVERIZER);
             })
             .build();
 
     public static void Initialize() {
         Registry.register(Registries.ITEM_GROUP, Identifier.of(Tech_mod.MOD_ID, "items_group"), ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, Identifier.of(Tech_mod.MOD_ID, "blocks_group"), BLOCK_GROUP);
+        Registry.register(Registries.ITEM_GROUP, Identifier.of(Tech_mod.MOD_ID, "machines_group"), MACHINES_GROUP);
     }
 }

@@ -2,11 +2,11 @@ package net.heaper.tech_mod.client.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.heaper.tech_mod.block.ModBlocks;
-import net.heaper.tech_mod.client.datagen.texture.TextureDataProviders;
-import net.heaper.tech_mod.client.datagen.texture.base.Base;
-import net.heaper.tech_mod.client.datagen.texture.template.TemplateConfig;
-import net.heaper.tech_mod.client.datagen.texture.template.Templates;
-import net.heaper.tech_mod.client.datagen.texture.template.TextureDefinition;
+import net.heaper.tech_mod.client.datagen.builder.texture.TextureDataProviders;
+import net.heaper.tech_mod.client.datagen.builder.texture.base.Base;
+import net.heaper.tech_mod.client.datagen.builder.texture.template.TemplateConfig;
+import net.heaper.tech_mod.client.datagen.builder.texture.template.Templates;
+import net.heaper.tech_mod.client.datagen.builder.texture.template.TextureDefinition;
 import net.heaper.tech_mod.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "tech_mod:block/pulverizer_side",
+    "north": "tech_mod:block/pulverizer_front_on",
+    "south": "tech_mod:block/pulverizer_side",
+    "east": "tech_mod:block/pulverizer_side",
+    "west": "tech_mod:block/pulverizer_side",
+    "up": "tech_mod:block/pulverizer_top",
+    "down": "tech_mod:block/pulverizer_side"
+  }
+}
