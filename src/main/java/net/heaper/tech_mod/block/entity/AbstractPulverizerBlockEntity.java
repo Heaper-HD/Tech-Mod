@@ -257,12 +257,20 @@ public abstract class AbstractPulverizerBlockEntity extends LockableContainerBlo
 
     @Override
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return this.isValid(slot, stack);
+        return switch (slot) {
+            case 0 -> true;
+            case 1 -> false;
+            default -> throw new IllegalStateException("Unexpected value: " + slot);
+        };
     }
 
     @Override
     public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        return true;
+        return switch (slot) {
+            case 0 -> false;
+            case 1 -> true;
+            default -> throw new IllegalStateException("Unexpected value: " + slot);
+        };
     }
 
     @Override

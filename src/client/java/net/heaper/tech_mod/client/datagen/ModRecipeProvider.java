@@ -1,6 +1,8 @@
 package net.heaper.tech_mod.client.datagen;
 
+import net.heaper.tech_mod.client.datagen.builder.recipe.ModRecipeGenerator;
 import net.heaper.tech_mod.client.datagen.builder.recipe.PulverizingRecipeJsonBuilder;
+import net.heaper.tech_mod.recipe.book.PulverizingRecipeCategory;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -26,7 +28,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registryLookup, RecipeExporter exporter) {
-        return new RecipeGenerator(registryLookup, exporter) {
+        return new ModRecipeGenerator(registryLookup, exporter) {
             @Override
             public void generate() {
                 RegistryWrapper.Impl<Item> itemLookup = registries.getOrThrow(RegistryKeys.ITEM);
@@ -114,17 +116,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 );
 
                 //Pulverizing recipes
-                PulverizingRecipeJsonBuilder.createPulverizingRecipe(
-                                Ingredient.ofItems(ModBlocks.URANIUM_ORE),   // ← correct
-                                RecipeCategory.MISC,
-                                ModItems.URANIUM_POWDER,
-                                0.1f,
-                                200)
-                        .group("uranium_powder")
-                        .criterion(hasItem(ModBlocks.URANIUM_ORE), conditionsFromItem(ModBlocks.URANIUM_ORE))
-                        .offerTo(exporter);
+                offerPulverizing(
+                        List.of(ModItems.RAW_URANIUM, ModBlocks.URANIUM_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE),
+                        RecipeCategory.MISC,
+                        ModItems.DIRTY_URANIUM_POWDER,
+                        0.1f,
+                        200,
+                        "dirty_uranium_powder"
+                );
             }
         };
+
     }
 
     @Override

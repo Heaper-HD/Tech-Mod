@@ -2,6 +2,7 @@ package net.heaper.tech_mod.client.datagen.builder.recipe;
 
 import net.heaper.tech_mod.component.ModDataComponentsType;
 import net.heaper.tech_mod.recipe.AbstractPulverizingRecipe;
+import net.heaper.tech_mod.recipe.ModRecipeSerializers;
 import net.heaper.tech_mod.recipe.PulverizingRecipe;
 import net.heaper.tech_mod.recipe.book.PulverizingRecipeCategory;
 import net.minecraft.advancement.Advancement;
@@ -17,6 +18,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKey;
 import org.jetbrains.annotations.Nullable;
@@ -45,6 +47,18 @@ public class PulverizingRecipeJsonBuilder implements CraftingRecipeJsonBuilder {
         this.experience = experience;
         this.pulverizingTime = pulverizingTime;
         this.recipeFactory = recipeFactory;
+    }
+
+    public static <T extends AbstractPulverizingRecipe>PulverizingRecipeJsonBuilder create(
+            Ingredient input,
+            RecipeCategory category,
+            ItemConvertible  output,
+            float experience,
+            int pulverizingTime,
+            RecipeSerializer<T> serializer,
+            AbstractPulverizingRecipe.RecipeFactory<T> recipeFactory
+    ) {
+        return new PulverizingRecipeJsonBuilder(category, PulverizingRecipeJsonBuilder.getPulverizingRecipeCategory(serializer, output), output, input, experience, pulverizingTime, recipeFactory);
     }
 
     public static PulverizingRecipeJsonBuilder createPulverizingRecipe(Ingredient input, RecipeCategory category, ItemConvertible output, float experience, int pulverizingTime) {
@@ -80,6 +94,13 @@ public class PulverizingRecipeJsonBuilder implements CraftingRecipeJsonBuilder {
                 this.pulverizingTime
         );
         exporter.accept(recipeKey, (Recipe<?>) abstractPulverizingRecipe, builder.build(recipeKey.getValue().withPrefixedPath("recipes/" + this.category.getName() + "/")));
+    }
+
+    private static PulverizingRecipeCategory getPulverizingRecipeCategory(RecipeSerializer<? extends AbstractPulverizingRecipe> serializer, ItemConvertible output) {
+        if (serializer == ModRecipeSerializers.PULVERIZING) {
+            return PulverizingRecipeJsonBuilder.getPulverizingRecipeCategory(output);
+        }
+        throw new IllegalStateException("Unknown pulverizing recipe type");
     }
 
     private static PulverizingRecipeCategory getPulverizingRecipeCategory(ItemConvertible output) {

@@ -94,7 +94,7 @@ public class ModBlocks {
     public static Block PULVERIZER = register(
             "pulverizer",
             PulverizerBlock::new,
-            AbstractBlock.Settings.create(),
+            AbstractBlock.Settings.create().strength(4f, 5.5f).requiresTool().sounds(BlockSoundGroup.IRON),
             true
     );
 

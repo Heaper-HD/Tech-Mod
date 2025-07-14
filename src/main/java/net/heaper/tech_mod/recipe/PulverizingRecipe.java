@@ -12,6 +12,8 @@
     import net.minecraft.recipe.book.RecipeBookCategory;
     import org.jetbrains.annotations.Nullable;
 
+    import java.util.Collections;
+
     public class PulverizingRecipe extends AbstractPulverizingRecipe {
         public PulverizingRecipe(String group, PulverizingRecipeCategory category, Ingredient ingredient, ItemStack result, float experience, int pulverizationTime) {
             super(group, category, ingredient, result, experience, pulverizationTime);
@@ -34,7 +36,7 @@
 
         @Override
         public @Nullable IngredientPlacement getIngredientPlacement() {
-            return IngredientPlacement.forSingleSlot(this.ingredient());
+            return IngredientPlacement.forShapeless(Collections.singletonList(this.ingredient()));
         }
 
         @Override

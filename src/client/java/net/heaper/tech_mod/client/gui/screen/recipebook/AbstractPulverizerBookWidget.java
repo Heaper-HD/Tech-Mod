@@ -46,8 +46,8 @@ public class AbstractPulverizerBookWidget extends RecipeBookWidget<AbstractPulve
     @Override
     protected void showGhostRecipe(GhostRecipe ghostRecipe, RecipeDisplay display, ContextParameterMap context) {
         ghostRecipe.addResults(this.craftingScreenHandler.getOutputSlot(), context, display.result());
-        if (display instanceof PulverizerRecipeDisplay pulverizatorRecipeDisplay) {
-            ghostRecipe.addInputs((Slot)this.craftingScreenHandler.slots.get(0), context, pulverizatorRecipeDisplay.ingredient());
+        if (display instanceof PulverizerRecipeDisplay pulverizerRecipeDisplay) {
+            ghostRecipe.addInputs((Slot)this.craftingScreenHandler.slots.get(0), context, pulverizerRecipeDisplay.ingredient());
         }
     }
 

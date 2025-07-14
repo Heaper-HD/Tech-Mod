@@ -33,6 +33,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.URANIUM_BLOCK);
         addDrop(ModBlocks.RAW_URANIUM_BLOCK);
+        addDrop(ModBlocks.PULVERIZER);
 
         //Silk touch/Fortune affected loot table drops
         addDrop(ModBlocks.URANIUM_ORE, dropsWithSilkTouch(ModBlocks.URANIUM_ORE,
