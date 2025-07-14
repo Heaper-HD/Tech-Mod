@@ -1,0 +1,7 @@
+// 1.21.7	-999999999-01-01T00:00:00	Tech Mod/Block Loot Tables
+cfa5272739431fa010c0bad5cbb3059fa348b630 data/tech_mod/loot_table/blocks/arentinium_ore.json
+b850d0e3060f83079b3e1882dd4ce82c11d0fc3f data/tech_mod/loot_table/blocks/deepslate_uranium_ore.json
+0486e4caab9578c54c1341ec11224f337efe73f5 data/tech_mod/loot_table/blocks/pulverizer.json
+dbdd7a6e1b5c03e79f2ee57ec07019aa7996b411 data/tech_mod/loot_table/blocks/raw_uranium_block.json
+02354aff02ee9ca768886d2c924de2c5c8a409ae data/tech_mod/loot_table/blocks/uranium_block.json
+3e3f8fbce0a061cf96e81626122c1a53dadef0a9 data/tech_mod/loot_table/blocks/uranium_ore.json

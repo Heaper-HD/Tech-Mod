@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "uranium_pellet",
+  "key": {
+    "#": "tech_mod:small_uranium_pellet"
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tech_mod:uranium_pellet"
+  }
+}
